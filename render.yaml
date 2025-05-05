@@ -22,7 +22,7 @@ services:
     name: ai-interview-frontend
     env: node
     rootDir: 3cf9f4ea-644d-446c-9e93-d72bd1fd11e0
-    buildCommand: npm install && npm run render-build
+    buildCommand: npm install && npm install react react-dom react-router-dom vite@5.2.0 @vitejs/plugin-react@4.2.1 && npm run render-build
     startCommand: npx serve -s dist
     plan: free # Or choose another plan based on your needs
     envVars:

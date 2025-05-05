@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [],
   build: {
     outDir: 'dist',
-    minify: true,
-    target: 'es2015'
+    rollupOptions: {
+      input: {
+        main: './index.html'
+      }
+    }
   }
 }) 

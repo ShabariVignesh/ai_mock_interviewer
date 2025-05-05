@@ -10,7 +10,7 @@ RUN apt-get update -y && apt-get install -y \
 WORKDIR /app
 
 # Copy backend files
-COPY . /app/
+COPY ./AI-mock-interview /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel

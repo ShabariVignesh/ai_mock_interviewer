@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx vite",
     "build": "npx vite build",
-    "render-build": "npx vite build --config vite.config.js",
+    "render-build": "node render-build.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "preview": "npx vite preview"
   },

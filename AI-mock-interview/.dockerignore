@@ -1,0 +1,61 @@
+# Version control
+.git
+.gitignore
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+.env
+
+# Docker
+.dockerignore
+Dockerfile.minimal
+
+# Fly.io
+fly.toml.old
+
+# Data and artifacts
+artifacts/
+data/
+models/
+*.zip
+*.tar.gz
+
+# Documentation
+docs/
+
+# Test files
+tests/
+test_*.py
+
+# Log files
+*.log
+
+# Don't exclude our critical files
+!AI-mock-interview/requirements.txt
+!AI-mock-interview/setup.py
+!AI-mock-interview/app.py
+!start-services.sh
+!nginx.conf

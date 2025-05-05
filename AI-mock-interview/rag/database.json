@@ -1,0 +1,38 @@
+[
+    {
+        "question": "Hello SHABARI VIGNESH! I'll be conducting your interview today. Could you start by telling me a bit about yourself and your background?",
+        "answer": ""
+    },
+    {
+        "question": "Hello SHABARI VIGNESH! I'll be conducting your interview today. Could you start by telling me a bit about yourself and your background?",
+        "answer": "I\u2019m a Data Engineer with around 4 years of experience. I\u2019ve worked on building ETL pipelines, automating data workflows, and managing cloud data systems mainly using tools like Python, SQL, and Spark. I\u2019ve worked at Capgemini and ITC Infotech, and right now I\u2019m doing my Master\u2019s in Applied Data Science at San Jose State University. I\u2019m looking to grow by working on more challenging data problems. "
+    },
+    {
+        "question": "I appreciate you walking me through your experience. Now, I'd like to move on to some questions about your technical experience. Let's dive into your background with Python programming first. Could you tell me about your experience with this area?",
+        "answer": ""
+    },
+    {
+        "question": "I appreciate you walking me through your experience. Now, I'd like to move on to some questions about your technical experience. Let's dive into your background with Python programming first. Could you tell me about your experience with this area?",
+        "answer": "Python has been my go-to language for most of my projects, especially in data science and machine learning. I\u2019ve used it extensively for data manipulation, model building, and even deploying small applications.\" \"For example, in our AI Mock Interviewer project, I used Python for everything from cleaning and preprocessing large datasets with pandas, to building and fine-tuning machine learning models using libraries like scikit-learn and Hugging Face Transformers.\" \"I\u2019m also comfortable writing modular, reusable code\u2014working with functions, classes, and handling exceptions properly. I\u2019ve built full data pipelines in Python that handle everything from ingesting raw data to outputting insights or predictions.\" \"Overall, Python\u2019s flexibility and rich ecosystem have really allowed me to bring ideas to life efficiently, whether I\u2019m working on data analytics, automation, or building ML-driven systems."
+    },
+    {
+        "question": "That's a solid technical explanation. Now, let's discuss pandas in this area. What are the core data structures in pandas and what are they used for?",
+        "answer": ""
+    },
+    {
+        "question": "That's a solid technical explanation. Now, let's discuss pandas in this area. What are the core data structures in pandas and what are they used for?",
+        "answer": "Pandas has two core data structures: Series and DataFrame, and they\u2019re the foundation for pretty much all data manipulation in Python.\" \"Series is essentially a one-dimensional labeled array. It\u2019s perfect for working with a single column of data\u2014like a list of scores, names, or dates\u2014where each value can be indexed.\" \"DataFrame, on the other hand, is a two-dimensional, tabular structure, like an Excel sheet. It\u2019s made up of multiple Series aligned by a common index. You use it when you\u2019re dealing with structured data\u2014rows and columns\u2014like a dataset of interview questions with their categories, difficulty level, and whether they\u2019ve been answered or not.\" \"In our project, we used DataFrames extensively\u2014for tasks like cleaning the dataset, handling missing values, merging sources, and visualizing skill distributions. Pandas really helped streamline the entire preprocessing phase before feeding the data into our ML models.\""
+    },
+    {
+        "question": "That's quite thorough, thank you. Could you explain the concept of vectorization in pandas and why it's important for performance?",
+        "answer": ""
+    },
+    {
+        "question": "That's quite thorough, thank you. Could you explain the concept of vectorization in pandas and why it's important for performance?",
+        "answer": "Sure! Vectorization in pandas means applying operations to entire arrays or columns at once, instead of processing each value individually with loops. It's possible because pandas is built on top of NumPy, which allows these operations to run under the hood in compiled C code.\" \"For example, instead of looping through a column to add 5 to each value, you can simply write df['col'] + 5\u2014that\u2019s vectorization in action.\" \"It\u2019s important for performance because vectorized operations are significantly faster and more efficient. They minimize Python-level overhead, avoid explicit loops, and take advantage of low-level optimizations, which is crucial when working with large datasets.\" \"In our AI Mock Interviewer project, we used vectorization to clean and transform tens of thousands of records efficiently. It helped us scale our preprocessing pipeline without sacrificing speed.\""
+    },
+    {
+        "question": "That's a solid technical explanation. Now, let's move on to numpy. Tell me about a challenging project where you applied your python skills. What was your role and how did you overcome obstacles?",
+        "answer": ""
+    }
+]

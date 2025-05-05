@@ -1,0 +1,38 @@
+# Core dependencies
+PyPDF2==3.0.1
+docx2txt==0.9
+python-box==7.3.2
+python-docx==1.1.2
+numpy==1.26.4
+PyYAML==6.0.2
+ensure==1.0.4
+fastapi==0.115.11
+uvicorn==0.34.0
+python-dotenv==1.1.0
+
+# ML/AI dependencies
+transformers==4.49.0
+datasets==3.4.1
+torch==2.2.2
+bitsandbytes==0.42.0
+peft==0.15.0
+accelerate==1.5.2
+
+# LangChain & RAG
+langchain==0.3.21
+langchain-huggingface==0.1.2
+sentence-transformers==3.4.1
+langchain-groq==0.3.1
+pinecone==6.0.2
+openai==1.68.2
+
+# UI
+streamlit==1.44.0
+
+# The following packages are REMOVED due to system dependencies issues
+# SpeechRecognition==3.14.2
+# pydub==0.25.1
+# pyaudio==0.2.14
+
+# Install the package itself
+-e .

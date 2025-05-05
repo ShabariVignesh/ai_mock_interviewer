@@ -1,0 +1,31 @@
+services:
+  # Backend API service
+  - type: web
+    name: ai-interview-backend
+    env: docker
+    dockerfilePath: ./Dockerfile.backend
+    plan: free # Or choose another plan based on your needs
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: GROQ_API_KEY
+        sync: false # This will be set in the Render dashboard
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+    healthCheckPath: /docs
+    
+  # Frontend web service
+  - type: web
+    name: ai-interview-frontend
+    env: node
+    rootDir: 3cf9f4ea-644d-446c-9e93-d72bd1fd11e0
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s dist
+    plan: free # Or choose another plan based on your needs
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_API_URL
+        value: https://ai-interview-backend.onrender.com 

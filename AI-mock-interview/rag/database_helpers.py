@@ -1,0 +1,118 @@
+import os
+import json
+import sqlite3
+
+# File to store conversation history
+DATABASE_FILE = "database.json"
+
+# Get the absolute path to the database
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app.db")
+
+# Function to load conversation history
+def load_conversation():
+    if os.path.exists(DATABASE_FILE):
+        with open(DATABASE_FILE, "r") as file:
+            return json.load(file)
+    return []
+
+# Function to save conversation history
+def save_conversation(history):
+    with open(DATABASE_FILE, "w") as file:
+        json.dump(history, file, indent=4)
+
+# Function to clear the conversation history (reset database)
+def clear_conversation():
+    if os.path.exists(DATABASE_FILE):
+        os.remove(DATABASE_FILE)
+        print("\nInterview session ended. Conversation history cleared.")
+
+# Database Functions (for resume uploader)
+# -------------------------------
+def init_db():
+    """Initialize the database tables."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    # Create users table
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL
+    )
+    ''')
+    
+    # Create resumes table
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS resumes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        job_description TEXT,
+        resume_filename TEXT,
+        name TEXT,
+        skills TEXT,
+        work_experience TEXT,
+        projects TEXT,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    ''')
+    
+    # Create conversation table
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS conversation (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        question TEXT,
+        answer TEXT
+    )
+    ''')
+
+    # Create user_preferences table
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS user_preferences (
+        user_id INTEGER PRIMARY KEY,
+        interview_type TEXT DEFAULT 'technical',
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    ''')
+    
+    conn.commit()
+    conn.close()
+
+def create_user(username, password):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    try:
+        c.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        conn.commit()
+        
+        # Get the user ID of the newly created user
+        c.execute("SELECT id FROM users WHERE username=?", (username,))
+        user_id = c.fetchone()[0]
+        
+        return True, user_id, "User created successfully"
+    except sqlite3.IntegrityError:
+        return False, None, "Username already exists"
+    finally:
+        conn.close()
+
+def login_user(username, password):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("SELECT id FROM users WHERE username=? AND password=?", (username, password))
+    user = c.fetchone()
+    conn.close()
+    
+    if user:
+        return True, user[0], "Login successful"
+    else:
+        return False, None, "Invalid username or password"
+
+def get_user_id(username):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("SELECT id FROM users WHERE username=?", (username,))
+    result = c.fetchone()
+    conn.close()
+    if result:
+        return result[0]
+    return None
